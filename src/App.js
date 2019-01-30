@@ -23,8 +23,35 @@ class App extends Component {
       return Box;
     }
   };
+
+  FizzBuzzHandler = limit => {
+    let FIZZBUZZ =
+      this.NumbersGenerator(limit).length > 0 &&
+      this.NumbersGenerator(limit).map(number =>
+        number % 5 === 0 && number % 3 === 0
+          ? `fizzbuzz`
+          : number % 5 === 0
+          ? `buzz`
+          : number % 3 === 0
+          ? `fizz`
+          : number
+      );
+
+    let content =
+      FIZZBUZZ && FIZZBUZZ.filter(number => number === "fizzbuzz").length;
+    FIZZBUZZ &&
+      this.setState({
+        fizzBuzzBox: FIZZBUZZ,
+        fizzBuzzCounter: content
+      });
+  };
+
   render() {
-    return <div className="App" />;
+    return (
+      <div className="App">
+        <p>counter : {this.state.fizzBuzzCounter}</p>
+      </div>
+    );
   }
 }
 
