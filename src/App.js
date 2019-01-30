@@ -6,12 +6,18 @@ class App extends Component {
   state = {
     fizzBuzzBox: null,
     fizzBuzzCounter: 0,
+
+    //this is the max limit number you change it to get diffrent outputs
     limitNumbers: 100
   };
 
   componentWillMount() {
+    // this function take the limit numbers and eccept just numbers
+    // if you wanna passing diffrent limits please use this function
     this.FizzBuzzHandler(this.state.limitNumbers);
   }
+
+  // this function generate array of numbers startting from 1 until limitNumber
 
   NumbersGenerator = limit => {
     if (limit) {
@@ -27,6 +33,10 @@ class App extends Component {
       return Box;
     }
   };
+
+  // this function take NumbersGenerator function and check numbers if multiples by 3 or 5 or both or not
+  // catch just fuzzBuzz
+  // change the propirtes in the state {fizzbuzzBox, fizzbuzzCounter}
 
   FizzBuzzHandler = limit => {
     var FIZZBUZZ =
