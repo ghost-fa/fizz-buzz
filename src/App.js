@@ -6,8 +6,12 @@ class App extends Component {
   state = {
     fizzBuzzBox: null,
     fizzBuzzCounter: 0,
-    limitNumber: 100
+    limitNumbers: 100
   };
+
+  componentWillMount() {
+    this.FizzBuzzHandler(this.state.limitNumbers);
+  }
 
   NumbersGenerator = limit => {
     if (limit) {
