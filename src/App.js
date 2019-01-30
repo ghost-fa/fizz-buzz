@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import FizzBuzz from "./components/FizzBuzz";
 import "./App.css";
 
 class App extends Component {
@@ -29,7 +29,7 @@ class App extends Component {
   };
 
   FizzBuzzHandler = limit => {
-    let FIZZBUZZ =
+    var FIZZBUZZ =
       this.NumbersGenerator(limit).length > 0 &&
       this.NumbersGenerator(limit).map(number =>
         number % 5 === 0 && number % 3 === 0
@@ -41,7 +41,7 @@ class App extends Component {
           : number
       );
 
-    let content =
+    var content =
       FIZZBUZZ && FIZZBUZZ.filter(number => number === "fizzbuzz").length;
     FIZZBUZZ &&
       this.setState({
@@ -52,8 +52,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <p>counter : {this.state.fizzBuzzCounter}</p>
+      <div>
+        <p>content : {this.state.fizzBuzzCounter}</p>
+        {this.state.fizzBuzzBox &&
+          this.state.fizzBuzzBox.map((item, i) => (
+            <FizzBuzz key={i} fizzBuzz={item} />
+          ))}
       </div>
     );
   }
